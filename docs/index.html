@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venezuela</title>
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" href="/assets/images/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/images/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="manifest" href="/assets/images/site.webmanifest">
+    <meta name="theme-color" content="#070295" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#212121" media="(prefers-color-scheme: dark)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
@@ -14,10 +20,31 @@
 </head>
 <body>
     <header>
+        <div class="overlay"></div>
         <h1>Distribución Geográfica de Venezuela</h1>
     </header>
     <main>
-        <section id="list_of_content"></section>
+        <p>Lista de Estados, Municipios y Parroquias de Venezuela</p>
+        <section id="list_of_content">
+            <article>
+                <details>
+                    <summary class="yellow"><h2>Distrito Capital</h2></summary>
+                    <section class="content">
+                        <h3>Municipios</h3>
+                        <details>
+                            <summary class="blue"><h4>Libertador</h4></summary>
+                            <section class="content">
+                                <h5>Parroquias</h5>
+                                <ul>
+                                    <li><strong>Altagracia</strong></li>
+                                </ul>
+                            </section>
+                        </details>
+                        <div class="red divisor"></div>
+                    </section>
+                </details>
+            </article>
+        </section>
     </main>
     <footer>
         <div>
