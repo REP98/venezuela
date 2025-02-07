@@ -1,6 +1,6 @@
 async function load_data() {
     try {
-        const response = await fetch("venezuela.json")
+        const response = await fetch("https://rep98.github.io/venezuela/venezuela.json")
         const data = await response.json()
         const ParentNode = document.querySelector("#list_of_content")
         for (const codIso in data) {
