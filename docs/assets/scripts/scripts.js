@@ -8,7 +8,7 @@ async function load_data() {
             ParentNode.innerHTML += Article;
         }
     } catch (error) {
-        console.log(error)
+        console.log(error) 
     }
 }
 
