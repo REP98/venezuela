@@ -194,6 +194,12 @@ main article details summary {
 .content ul li:last-child {
 	border-bottom: none !important;
 }
+
+.content ol {
+	list-style: decimal-leading-zero;
+    padding-left: 2rem;
+}
+
 summary h2,
 summary h3,
 summary h4

@@ -14,9 +14,10 @@ async function load_data() {
 }
 
 const TPL = (o) => {
-    let municipalitiesHTML = "<h3>Municipios</h3>"
-    let islandsHTML = "<h3>Islas</h3>"
+    let municipalitiesHTML = ""
+    let islandsHTML = ""
     if (o.hasOwnProperty('municipalities')) {
+        municipalitiesHTML += "<h3>Municipios</h3>"
         o.municipalities.forEach(mp => {
             let parishesHTML = ""
             mp.parishes.forEach(pq => {
@@ -35,11 +36,11 @@ const TPL = (o) => {
         })
     }
     if (o.hasOwnProperty("islands")) {
-        islandsHTML += "<ul>"
+        islandsHTML += "<h3>Islas</h3><ol>"
         o.islands.forEach(isl => {
             islandsHTML += `<li><strong>${isl}</strong></li>`
         })
-        islandsHTML += "</ul>"
+        islandsHTML += "</ol>"
     }
     
 
@@ -47,7 +48,7 @@ const TPL = (o) => {
         <details>
             <summary class="yellow"><h2>${o.name}</h2></summary>
             <section class="content" style="background-image: url(https://rep98.github.io/venezuela/assets/flags/${o.name.replaceAll(" ", "_")}.svg);">
-                <p style="margin-top: 0.65rem; margin-left: 1rem;">Capital: ${o.capital}</p>
+                <p style="margin-top: 0.65rem;">Capital: <strong>${o.capital}</strong></p>
                 ${municipalitiesHTML}
                 ${islandsHTML}
                 <div class="red divisor"></div>
