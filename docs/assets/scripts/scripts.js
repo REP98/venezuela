@@ -34,7 +34,7 @@ const TPL = (o) => {
     return `<article>
         <details>
             <summary class="yellow"><h2>${o.name}</h2></summary>
-            <section class="content" style="background-image: url(/assets/flags/${o.name.replaceAll(" ", "_")}.svg);">
+            <section class="content" style="background-image: url(https://rep98.github.io/venezuela/assets/flags/${o.name.replaceAll(" ", "_")}.svg);">
                 <h3>Municipios</h3>
                 ${municipalitiesHTML}
                 <div class="red divisor"></div>

@@ -3,31 +3,31 @@
   "short_name": "Vzla",
   "icons": [
     {
-      "src": "/assets/images/pwa-192x192.png",
+      "src": "https://rep98.github.io/venezuela/assets/images/pwa-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/images/pwa-512x512.png",
+      "src": "https://rep98.github.io/venezuela/assets/images/pwa-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/images/pwa-maskable-192x192.png",
+      "src": "https://rep98.github.io/venezuela/assets/images/pwa-maskable-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/images/pwa-maskable-512x512.png",
+      "src": "https://rep98.github.io/venezuela/assets/images/pwa-maskable-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "start_url": "/",
+  "start_url": "https://rep98.github.io/venezuela/",
   "display": "standalone",
   "background_color": "#F5F5F5",
   "theme_color": "#070295",
