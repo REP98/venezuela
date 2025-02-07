@@ -2,6 +2,7 @@ async function load_data() {
     try {
         const response = await fetch("https://rep98.github.io/venezuela/venezuela.json")
         const data = await response.json()
+        console.log(data)
         const ParentNode = document.querySelector("#list_of_content")
         for (const codIso in data) {
             const Article = TPL(data[codIso])
@@ -34,6 +35,7 @@ const TPL = (o) => {
     return `<article>
         <details>
             <summary class="yellow"><h2>${o.name}</h2></summary>
+            <p>Capital: ${o.capital}</p>
             <section class="content" style="background-image: url(https://rep98.github.io/venezuela/assets/flags/${o.name.replaceAll(" ", "_")}.svg);">
                 <h3>Municipios</h3>
                 ${municipalitiesHTML}
