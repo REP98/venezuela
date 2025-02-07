@@ -14,31 +14,42 @@ async function load_data() {
 }
 
 const TPL = (o) => {
-    let municipalitiesHTML = ""
-    o.municipalities.forEach(mp => {
-        let parishesHTML = ""
-        mp.parishes.forEach(pq => {
-            parishesHTML += `<li><strong>${pq}</strong></li>`
+    let municipalitiesHTML = "<h3>Municipios</h3>"
+    let islandsHTML = "<h3>Islas</h3>"
+    if (o.hasOwnProperty('municipalities')) {
+        o.municipalities.forEach(mp => {
+            let parishesHTML = ""
+            mp.parishes.forEach(pq => {
+                parishesHTML += `<li><strong>${pq}</strong></li>`
+            })
+    
+            municipalitiesHTML += `<details>
+                <summary class="blue"><h4>${mp.name}</h4></summary>
+                <section class="content">
+                    <h5>Parroquias</h5>
+                    <ul>
+                        ${parishesHTML}
+                    </ul>
+                </section>
+            </details>`
         })
-
-        municipalitiesHTML += `<details>
-            <summary class="blue"><h4>${mp.name}</h4></summary>
-            <section class="content">
-                <h5>Parroquias</h5>
-                <ul>
-                    ${parishesHTML}
-                </ul>
-            </section>
-        </details>`
-    })
+    }
+    if (o.hasOwnProperty("islands")) {
+        islandsHTML += "<ul>"
+        o.islands.forEach(isl => {
+            islandsHTML += `<li><strong>${isl}</strong></li>`
+        })
+        islandsHTML += "</ul>"
+    }
+    
 
     return `<article>
         <details>
             <summary class="yellow"><h2>${o.name}</h2></summary>
-            <p>Capital: ${o.capital}</p>
             <section class="content" style="background-image: url(https://rep98.github.io/venezuela/assets/flags/${o.name.replaceAll(" ", "_")}.svg);">
-                <h3>Municipios</h3>
+                <p style="margin-top: 0.65rem; margin-left: 1rem;">Capital: ${o.capital}</p>
                 ${municipalitiesHTML}
+                ${islandsHTML}
                 <div class="red divisor"></div>
             </section>
         </details>
