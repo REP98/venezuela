@@ -55,7 +55,7 @@ body {
     font-weight: 400;
     letter-spacing: 0.03em;
 	width: 100%;
-  
+	background-color: #e8e8e8;
 	display: grid;
 	grid:
 	  "header" auto
@@ -80,6 +80,7 @@ h1,h2,h3,h4,h5, summary {
     font-family: "Passion One", serif;
     font-weight: 700;
     font-style: normal;
+	letter-spacing: 1.25px;
 }
   
 header { 
@@ -91,7 +92,7 @@ header {
     padding-right: clamp(1rem, 2vw, 2rem);
 	margin: 0;
 	background-image: url("/assets/flags/bandera_de_venezuela.jpg");
-	min-height: 40vh;
+	min-height: 100vh;
     background-color: #1A1A1A;
     background-position: center;
     background-repeat: no-repeat;
@@ -101,6 +102,7 @@ header {
     justify-content: center;
 	position: relative;
 	z-index: 1024;
+	flex-direction: column;
 }
 header .overlay{
 	position: absolute;
@@ -151,25 +153,44 @@ h4 {
 h5 {
 	font-size: clamp(1.125rem, 2.458vw, 3.052rem);
 }
+main article:not(:last-child) {
+	margin-bottom: 0.45rem;
+}
 main article details{
 	border-radius: 10px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 10px 6px #ddd;
 }
 main article details details{
-	box-shadow: none;
+	box-shadow: none !important;
 }
 main article details .content {
 	padding: clamp(0.64rem, 2vw, 1rem);
+	background-size: 4em;
+    background-repeat: no-repeat;
+    background-position: 97% 0.7rem;
+    background-color: #F5F5F5;
 }
 main article details summary {
 	cursor: pointer;
     border-bottom: 1px dashed #9d9d9d;
     padding: 0.64rem 0.35rem;
 }
-.content ul li{
-	border-bottom: 1px solid #ddd;
+.content ul{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
 }
+.content ul li{
+	flex: 0 0 auto;
+	padding: 0.25rem 0.4rem;
+}
+
+.content ul li:not(:last-child)::after{
+	content: ", ";
+}
+
 .content ul li:last-child {
 	border-bottom: none !important;
 }
@@ -212,3 +233,188 @@ footer > div {
 footer a {
 	color: #FAFAFA;
 }
+#banners {
+	display: flex;
+	align-items: center;
+	margin-top: -1rem;
+	justify-content: space-between;
+}
+#banners div {
+	font-size: clamp(0.7rem, 1vw, 1rem);
+    text-align: end;
+
+    color: #1a1a1a;
+	font-family: "Passion One", serif;
+    font-weight: 700;
+	cursor: pointer;
+}
+
+#banners a {
+	text-decoration: none;
+	color: #1a1a1a;
+}
+#top-scroll {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: clamp(32px, 4rem, 64px);
+    height: clamp(32px, 4rem, 64px);
+    background-color: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+	transition: transform 0.2s ease-in-out;
+	box-shadow: 3px 2px 10px 3px rgba(0, 0, 0, 0.6);
+}
+
+#top-scroll:hover{
+	transform: scale(1.12);
+}
+
+
+#top-scroll svg.circles {
+    transform: rotate(-90deg); /* Rotar el SVG para que el progreso comience desde arriba */
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#top-scroll svg.bi{
+	transform: none !important;
+    fill: #FFCC00;
+    width: 70%;
+    height: 100%;
+    position: absolute;
+}
+#progress-ring {
+    stroke-dasharray: 283; /* Circunferencia del círculo */
+    stroke-dashoffset: 283; /* Comienza completamente oculto */
+    transition: stroke-dashoffset 0.2s ease; /* Transición suave */
+}
+
+
+#up {
+	cursor: pointer;
+    transition: all 0.2s ease-in-out;
+	animation: bounce 1s ease-in-out infinite;
+}
+
+#up svg {
+	width: 4rem;
+    height: 4rem;
+    margin-bottom: 0rem;
+    fill: #FAFAFA;
+}
+  
+#toggle-theme {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.35rem;
+    background: transparent;
+    color: #1A1A1A;
+    border: 2px solid #1A1A1A;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.35s ease-in-out;
+	margin-bottom: 6px;
+}
+
+#toggle-theme svg.bi-moon-stars-fill {
+	color: #161616;
+	fill: #161616;
+}
+
+#toggle-theme svg.bi-sun-fill {
+	color: #FFCC00;
+	fill: #FFCC00;
+}
+#toggle-theme:hover svg.bi-moon-stars-fill {
+	fill: #FFCC00;
+}
+body,
+#banners a,
+details,
+.content,
+#toggle-theme svg
+{
+	transition: background-color, border-color, box-shadow, color, fill 0.05s ease-in;
+}
+
+body #toggle-theme:hover {
+	background-color: #1A1A1A;
+}
+body.dark #toggle-theme:hover {
+	background-color: #FFCC00;
+	color: #1A1A1A
+}
+body.dark #toggle-theme:hover svg{
+	fill: #1A1A1A;
+}
+body #toggle-theme svg.bi-moon-stars-fill{
+	display: block;
+}
+body #toggle-theme svg.bi-sun-fill{
+	display: none;
+}
+body.dark #toggle-theme svg.bi-moon-stars-fill {
+	display: none !important;
+}
+body.dark #toggle-theme svg.bi-sun-fill {
+	display: block !important;
+}
+  @keyframes bounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-10px); }
+  }
+  
+ @media (prefers-color-scheme: dark) {
+	body:not(.light){
+		background-color: #2d2d2d;
+		color: #F8F8F8;
+	}
+	body:not(.light) #banners a {
+		color: #F8F8F8;
+	}
+	body:not(.light) main article details {
+		border-color: #1a1a1a;
+		box-shadow: 2px 2px 10px 6px #161616;
+	}
+	body:not(.light) main article details .content{
+		background-color: #3b3c41;
+	}
+	body:not(.light) #toggle-theme svg.bi-moon-stars-fill {
+		display: none !important;
+	}
+	body:not(.light) #toggle-theme svg.bi-sun-fill {
+		display: block !important;
+	}
+	body:not(.light) #toggle-theme:hover {
+		background-color: #FFCC00;
+		color: #1A1A1A;
+	}
+	body:not(.light) #toggle-theme:hover svg{
+		fill: #1A1A1A;
+	}
+ }
+ 
+body.dark{
+	background-color: #2d2d2d;
+	color: #F8F8F8;
+}
+body.dark  #banners a {
+	color: #F8F8F8;
+}
+body.dark  main article details {
+	border-color: #1a1a1a;
+	box-shadow: 2px 2px 10px 6px #161616;
+}
+body.dark  main article details .content{
+	background-color: #3b3c41;
+}
+
